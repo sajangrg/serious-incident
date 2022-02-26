@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+    <div class="divChange">
+        Lalala
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        window.onload = function() {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                exportEnabled: true,
+                animationEnabled: true,
+                title: {
+                    text: "Desktop Browser Market Share in 2016"
+                },
+                data: [{
+                    click: onClick,
+                    type: "pie",
+                    startAngle: 0,
+                    toolTipContent: "<b>{label}</b>: {y}%",
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabelFontSize: 16,
+                    indexLabel: "{label}",
+                    dataPoints: [{
+                        y: 36,
+                        label: "Chrome"
+                    }, {
+                        y: 36,
+                        label: "Internet Explorer"
+                    }, {
+                        y: 36,
+                        label: "Firefox"
+                    }, {
+                        y: 36,
+                        label: "Microsoft Edge"
+                    }, {
+                        y: 36,
+                        label: "Safari"
+                    }, {
+                        y: 36,
+                        label: "Opera"
+                    }, {
+                        y: 36,
+                        label: "Others"
+                    }, {
+                        y: 36,
+                        label: "Others2"
+                    }, {
+                        y: 36,
+                        label: "Others3"
+                    }, {
+                        y: 36,
+                        label: "Others4"
+                    }]
+                }]
+            });
+            chart.render();
+
+            function onClick(e) {
+                $('.divChange').toggleClass("desc" + e.dataPoint.label)
+            }
+
+        }
+    </script>
+</body>
+
+</html>
